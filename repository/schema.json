@@ -1,0 +1,102 @@
+{
+  "username": {
+    "column": {
+      "type": "Text",
+      "default": ""
+    },
+    "visible": true,
+    "frozen": false,
+    "displayName": "username",
+    "index": 1,
+    "style": {
+      "fontColor": "#fff",
+      "fontSize": 12,
+      "backgroundColor": "#ffffff",
+      "alignment": "left",
+      "textWrap": true,
+      "minColumnWidth": 64,
+      "width": 100
+    }
+  },
+  "age": {
+    "column": {
+      "type": "Num",
+      "default": 0
+    },
+    "visible": true,
+    "frozen": false,
+    "displayName": "age",
+    "index": 2,
+    "style": {
+      "fontColor": "#fff",
+      "fontSize": 12,
+      "backgroundColor": "#ffffff",
+      "alignment": "left",
+      "textWrap": true,
+      "minColumnWidth": 64,
+      "width": 100
+    }
+  },
+  "gender": {
+    "column": {
+      "type": "DropDownList",
+      "default": "other",
+      "options": [
+        "male",
+        "female",
+        "other"
+      ]
+    },
+    "visible": true,
+    "frozen": false,
+    "displayName": "gender",
+    "index": 3,
+    "style": {
+      "fontColor": "#fff",
+      "fontSize": 12,
+      "backgroundColor": "#ffffff",
+      "alignment": "left",
+      "textWrap": true,
+      "minColumnWidth": 64,
+      "width": 100
+    }
+  },
+  "active": {
+    "column": {
+      "type": "Boolean",
+      "default": false
+    },
+    "visible": true,
+    "frozen": false,
+    "displayName": "active",
+    "index": 4,
+    "style": {
+      "fontColor": "#fff",
+      "fontSize": 12,
+      "backgroundColor": "#ffffff",
+      "alignment": "left",
+      "textWrap": true,
+      "minColumnWidth": 64,
+      "width": 100
+    }
+  },
+  "registerDate": {
+    "column": {
+      "type": "Date",
+      "default": "1970-01-01T00:00:00.000Z"
+    },
+    "visible": true,
+    "frozen": false,
+    "displayName": "register date",
+    "index": 5,
+    "style": {
+      "fontColor": "#fff",
+      "fontSize": 12,
+      "backgroundColor": "#ffffff",
+      "alignment": "left",
+      "textWrap": true,
+      "minColumnWidth": 64,
+      "width": 100
+    }
+  }
+}

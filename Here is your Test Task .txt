@@ -1,0 +1,39 @@
+This is your test task:
+    Please create a single webpage of TreeGrid, host the demo online, so that we can test it remotely.
+    We DON'T set deadline for your test task, because, we want you take your time to deliver a 100% PERFECT demo - instead of buggy / incomplete demo(s).
+    Please use Syncfusion EJ2 Angular TreeGrid (free trial version), but it doen't support all required features, so, you HAVE to write custom code.
+    Please implement the task ONLY with Angular (front end) + Node.js (back end) + TypeScript (for both FE & BE).
+    We carefully designed this test task to be SELF-explanatory, ambiguity free, please let us know if you see any room for improvement.
+    Please accept this test task ONLY if you are confident to implement it 100% (word for word in this TXT) -- not 98%, not 99%!
+    After you complete the test task 100%, you SHALL became qualifed candidate for our large project(s), we will sign outsourcing contract with you ASAP.
+    Please add your test task billable hours into the project contract, we shall pay for your test task when we sign the contract, NOT otherwise!
+
+You may borrow sample code: https://ej2.syncfusion.com/angular/documentation/treegrid/virtual, and all "Angular TreeGrid" samples.
+Initially, your TreeGrid shall have 10K rows (RowID=1,2,3...10K), all users shall edit this single TreeGrid (a JSON file on server), all users' row-edits and column-settings are PERSISTENT between all users.
+This TreeGrid shall ALWAYS occupy user's browser full-screen (at any size), enable Vertical & Horizontal default-scroll-bars, but no Pager bar (i.e. single page).
+This TreeGrid shall be fully responsive on BOTH the PC browser (keyboard+mouse) and Mobile touchscreen (fingers).
+Please test your demo on all platform browsers to confirm it is FULLY responsible: PC, Android, and iOS.
+
+Please implement 2 Context Menus on this TreeGrid:
+(Note:  Certain menu item has 🗹 symbol  - meaning this item shall function as On/Off switch. It always show current On/Off status using EITHER 🗹 or ☐ )
+
+Context Menu 1 - Right-click (mouse) or long-press (mobile) a "Column Header", to pop-up 7 menu items:
+    EditCol: User can set (via dialog) a column's Name, Data-Type (Text/Num/Date/Boolean/DropDownList), Default-Value (of current DataType), 
+                    Minimum-Column-Width (when screen shrinked), Font-size, Font-color, Background-color, Alignment, Text-wrap ☑.
+                    (When user changes a Data Type, system converts all data under this column. If a data failed to convert: just replace it with Default Value of new Data Type)
+    NewCol: User can Create a new column (via dialog similar to EditCol), SAVE will create the new Column, CANCEL will not.
+    DelCol: User can Delete a column (with confirmation), such delete cannot be undone, (user can also Drag-n-drop to Reorder & Resize columns).
+    ChooseCol: User can show/hide (via dialog) any columns from a list of all columns. See https://ej2.syncfusion.com/angular/demos/#/bootstrap5/treegrid/columnchooser
+    FreezeCol ☑: Enable Freeze all-left-side (including current) columns, See https://ej2.syncfusion.com/angular/demos/#/bootstrap5/treegrid/frozen-column
+                               (When turning Freeze On, please switch from Virtual Scroll to Infinite Scroll to avoid a conflict in library. Freeze Off shall switch back to Virtual Scroll)
+    FilterCol ☑: Enable "Filter Bar" in Parent Hierarchy Mode, See https://ej2.syncfusion.com/angular/demos/#/bootstrap5/treegrid/filter
+    MultiSort ☑: Enable Multi-Sort for columns, See https://ej2.syncfusion.com/angular/demos/#/bootstrap5/treegrid/sorting
+
+Context Menu 2 - Rright-click (mouse) or long-press (mobile) a "Row", to pop-up 9 menu items:
+    AddNext; AddChild; DelRow; EditRow: User can Add(Next)/Add(Child)/Del/"Dialog-Edit" a row, (user can also Drag-n-drop to Move multi-selected rows).
+    MultiSelect ☑: Enable user to "Multi-select" rows on PC and Mobile, See https://ej2.syncfusion.com/angular/demos/#/bootstrap5/treegrid/selection
+    CopyRows; CutRows: Copy/Cut multi-selected rows - similar to how MS Windows File Explorer copy/cut Files (leaf rows) and Folders (non-leaf rows).
+    (The rows being Copied/Cut shall be highlighted in Pink color, but not removed yet, until user perform Paste)
+    PasteNext: Insert the copied/cut Rows as "next siblings" of the current row
+    PasteChild: Insert the copied/cut Rows as "children" of the current row
+    (Copy+Paste will auto-generate new RowIDs, because all RowIDs are unique in TreeGrid)
