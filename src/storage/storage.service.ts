@@ -58,8 +58,6 @@ export class StorageService {
       })
     }
 
-    data = this.familyTree(data)
-
     if (page && limit) {
       data = data.slice((page - 1) * limit, limit + 1)
       let more = false
