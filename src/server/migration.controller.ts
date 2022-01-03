@@ -39,6 +39,7 @@ export class MigrationController {
         body.default,
         body.style,
         body.options,
+        body.index,
       ),
     )
   }

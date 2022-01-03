@@ -78,9 +78,9 @@ export class StorageService {
     return data
   }
 
-  addRow(data: Data, parent?: number) {
+  addRow(data: Data, index: number, parent?: number) {
     if (parent && !this.data.find(r => r.rowId == parent)) throw new Error()
-    this.data.push({ rowId: ++this.lastRowId, data, parent })
+    this.data.splice(index, 0, { rowId: ++this.lastRowId, data, parent })
     this.dataChanged = true
   }
 

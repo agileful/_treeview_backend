@@ -78,6 +78,11 @@ export class AddColumnDto {
   @ApiProperty()
   @IsString()
   displayName: string
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  @IsNumber()
+  index: number
 }
 
 export class ModifyColumnDto extends PartialType(

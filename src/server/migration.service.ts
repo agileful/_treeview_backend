@@ -38,6 +38,7 @@ export class MigrationInterface {
     defaultValue: any,
     style: Style,
     options?: string[],
+    index?: number,
   ) {
     try {
       const column = this.createColumn(type, defaultValue, options)
@@ -47,6 +48,7 @@ export class MigrationInterface {
         displayName,
         style,
       )
+      if (index) this.migration.moveColumn(name, index)
       this.storage.addColumn(name, defaultValue)
       return newSchema
     } catch {

@@ -34,13 +34,14 @@ export class StorageController {
   //   return makeResponse(this.storage.getData(page, limit, body))
   // }
 
-  @Post('add-row/:parent?')
+  @Post('add-row/:index/:parent?')
   addRow(@Body() body, @Param() params) {
     let parent
     if (params.parent) parent = parseInt(params.parent)
+    const index = parseInt(params.index)
     try {
       const transformed = this.service.validateAndTransformData(body)
-      return makeResponse(this.storage.addRow(transformed, parent))
+      return makeResponse(this.storage.addRow(transformed, index, parent))
     } catch {
       return makeResponse(null)
     }
