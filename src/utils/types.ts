@@ -64,5 +64,4 @@ export interface Row {
   rowId: number
   data: Data
   parent: number
-  frozen: boolean
 }

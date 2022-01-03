@@ -79,16 +79,6 @@ export class StorageController {
     }
   }
 
-  @Get('rows/:id/toggle-frozen')
-  toggleFrozen(@Param() params) {
-    const id = parseInt(params.id)
-    try {
-      return makeResponse(this.storage.toggleFrozen(id))
-    } catch {
-      return makeResponse(null)
-    }
-  }
-
   @Delete('rows/:id')
   removeRow(@Param() params) {
     const id = parseInt(params.id)

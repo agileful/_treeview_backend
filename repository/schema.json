@@ -9,7 +9,7 @@
     "displayName": "username",
     "index": 1,
     "style": {
-      "fontColor": "#fff",
+      "fontColor": "#222",
       "fontSize": 12,
       "backgroundColor": "#ffffff",
       "alignment": "left",
@@ -28,7 +28,7 @@
     "displayName": "age",
     "index": 2,
     "style": {
-      "fontColor": "#fff",
+      "fontColor": "#222",
       "fontSize": 12,
       "backgroundColor": "#ffffff",
       "alignment": "left",
@@ -52,7 +52,7 @@
     "displayName": "gender",
     "index": 3,
     "style": {
-      "fontColor": "#fff",
+      "fontColor": "#222",
       "fontSize": 12,
       "backgroundColor": "#ffffff",
       "alignment": "left",
@@ -71,7 +71,7 @@
     "displayName": "active",
     "index": 4,
     "style": {
-      "fontColor": "#fff",
+      "fontColor": "#222",
       "fontSize": 12,
       "backgroundColor": "#ffffff",
       "alignment": "left",
@@ -90,7 +90,7 @@
     "displayName": "register date",
     "index": 5,
     "style": {
-      "fontColor": "#fff",
+      "fontColor": "#222",
       "fontSize": 12,
       "backgroundColor": "#ffffff",
       "alignment": "left",

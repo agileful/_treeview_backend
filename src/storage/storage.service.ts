@@ -61,7 +61,6 @@ export class StorageService {
     let data = tempData.map(r => ({
       rowId: r.rowId,
       parent: r.parent || null,
-      frozen: r.frozen,
       children: [],
       ...r.data,
     }))
@@ -81,9 +80,8 @@ export class StorageService {
 
   addRow(data: Data, parent?: number) {
     if (parent && !this.data.find(r => r.rowId == parent)) throw new Error()
-    this.data.push({ rowId: ++this.lastRowId, data, parent, frozen: false })
+    this.data.push({ rowId: ++this.lastRowId, data, parent })
     this.dataChanged = true
-    return this.data
   }
 
   moveRow(row: number, after?: number) {
@@ -96,7 +94,6 @@ export class StorageService {
     const [temp] = this.data.splice(oldIndex, 1)
     this.data.splice(newIndex, 0, temp)
     this.dataChanged = true
-    return this.data
   }
 
   selectParent(row: number, parent: number) {
@@ -106,7 +103,6 @@ export class StorageService {
     if (!r || !this.data.find(r => r.rowId == parent)) throw new Error()
     r.parent = parent
     this.dataChanged = true
-    return this.data
   }
 
   makeOrphan(row: number) {
@@ -114,15 +110,6 @@ export class StorageService {
     if (!r) throw new Error()
     r.parent = undefined
     this.dataChanged = true
-    return this.data
-  }
-
-  toggleFrozen(row: number) {
-    const r = this.data.find(r => r.rowId == row)
-    if (!r) throw new Error()
-    r.frozen = !r.frozen
-    this.dataChanged = true
-    return this.data
   }
 
   removeRow(row: number) {
@@ -132,7 +119,6 @@ export class StorageService {
       1,
     )
     this.dataChanged = true
-    return this.data
   }
 
   addColumn(name: string, defaultValue: any) {
@@ -143,14 +129,12 @@ export class StorageService {
       return r
     })
     this.dataChanged = true
-    return this.data
   }
 
   removeColumn(name: string) {
     if (this.data.length == 0) return
     this.data.forEach(r => delete r.data[name])
     this.dataChanged = true
-    return this.data
   }
 
   changeType(name: string, oldType: Type, newType: Type, defaultValue: any) {
@@ -162,7 +146,6 @@ export class StorageService {
       return r
     })
     this.dataChanged = true
-    return this.data
   }
 
   private familyTree(data: any[], tree = [], depth = 0) {
