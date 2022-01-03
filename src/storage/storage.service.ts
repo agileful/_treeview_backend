@@ -29,24 +29,24 @@ export class StorageService {
       sort?: { [_: string]: 'asc' | 'desc' }
     },
   ) {
-    let data = [...this.data]
+    let tempData = [...this.data]
 
     if (extra?.filter) {
-      data = data.filter(r => {
+      tempData = tempData.filter(r => {
         let flag = true
         Object.keys(extra.filter).forEach(key => {
           if (r.data[key] != extra.filter[key]) flag = false
         })
         return flag
       })
-      data = [
-        ...data,
-        ...this.data.filter(r => data.map(t => t.parent).includes(r.rowId)),
+      tempData = [
+        ...tempData,
+        ...this.data.filter(r => tempData.map(t => t.parent).includes(r.rowId)),
       ]
     }
 
     if (extra?.sort) {
-      data.sort((a, b) => {
+      tempData.sort((a, b) => {
         return Object.keys(extra.sort).reduce((flag, key) => {
           let result: number
           if (key == 'rowId') result = comparators.number(a.rowId, b.rowId)
@@ -57,6 +57,13 @@ export class StorageService {
         }, 0)
       })
     }
+
+    let data = tempData.map(r => ({
+      rowId: r.rowId,
+      parent: r.parent || null,
+      frozen: r.frozen,
+      ...r.data,
+    }))
 
     if (page && limit) {
       data = data.slice((page - 1) * limit, limit + 1)

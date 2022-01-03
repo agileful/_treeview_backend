@@ -1,0 +1,8 @@
+{
+    "name": "treegrid",
+    "script": "dist/main.js",
+    "autostart": true,
+    "env": {
+        "NODE_ENV": "production"
+    }
+}
