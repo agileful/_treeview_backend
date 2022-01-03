@@ -62,6 +62,7 @@ export class StorageService {
       rowId: r.rowId,
       parent: r.parent || null,
       frozen: r.frozen,
+      children: [],
       ...r.data,
     }))
 
