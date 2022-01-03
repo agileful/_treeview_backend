@@ -8,7 +8,6 @@ export class StorageInterface {
 
   validateAndTransformData(data: { [_: string]: any }) {
     const schema = this.migration.getSchema()
-
     let transformed = {}
     Object.keys(schema).forEach(key => {
       const column = schema[key]
@@ -29,8 +28,8 @@ export class StorageInterface {
             transformed[key] = data[key]
             break
           case Type.Date:
-            if (typeof data[key] != 'string' || typeof data[key] != 'number')
-              throw new Error()
+            if (typeof data[key] != 'string' && typeof data[key] != 'number')
+              throw new Error(typeof data[key])
             const date = new Date(data[key])
             if (isNaN(date.getDate())) throw new Error()
             transformed[key] = date

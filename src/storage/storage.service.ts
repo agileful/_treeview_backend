@@ -98,8 +98,6 @@ export class StorageService {
 
   selectParent(row: number, parent: number) {
     const r = this.data.find(r => r.rowId == row)
-    console.log(r)
-    console.log(this.data.find(r => r.rowId == parent))
     if (!r || !this.data.find(r => r.rowId == parent)) throw new Error()
     r.parent = parent
     this.dataChanged = true
