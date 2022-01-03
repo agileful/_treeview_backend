@@ -84,13 +84,8 @@ export class StorageService {
     this.dataChanged = true
   }
 
-  moveRow(row: number, after?: number) {
+  moveRow(row: number, newIndex: number) {
     const oldIndex = this.data.findIndex(r => r.rowId == row)
-    let newIndex = 0
-    if (after) {
-      newIndex = this.data.findIndex(r => r.rowId == after) + 1
-      if (oldIndex == -1 || newIndex == 0) throw new Error()
-    }
     const [temp] = this.data.splice(oldIndex, 1)
     this.data.splice(newIndex, 0, temp)
     this.dataChanged = true

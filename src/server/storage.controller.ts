@@ -47,13 +47,12 @@ export class StorageController {
     }
   }
 
-  @Get('rows/:id/move/:after?')
+  @Get('rows/:id/move/:index')
   moveRow(@Param() params) {
     const id = parseInt(params.id)
-    let after
-    if (params.after) after = parseInt(params.after)
+    const index = parseInt(params.index)
     try {
-      return makeResponse(this.storage.moveRow(id, after))
+      return makeResponse(this.storage.moveRow(id, index))
     } catch {
       return makeResponse(null)
     }
