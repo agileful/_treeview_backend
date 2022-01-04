@@ -5,6 +5,7 @@ import {
   Get,
   Param,
   Post,
+  Put,
   Query,
 } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
@@ -74,6 +75,17 @@ export class StorageController {
     const id = parseInt(params.id)
     try {
       return makeResponse(this.storage.makeOrphan(id))
+    } catch {
+      return makeResponse(null)
+    }
+  }
+
+  @Put('rows/:id')
+  updateRow(@Param() params, @Body() body) {
+    const id = parseInt(params.id)
+    try {
+      const transformed = this.service.validateAndTransformData(body, false)
+      return makeResponse(this.storage.updateRow(id, transformed))
     } catch {
       return makeResponse(null)
     }

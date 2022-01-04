@@ -6,7 +6,7 @@ import { MigrationInterface } from './migration.service'
 export class StorageInterface {
   constructor(private readonly migration: MigrationInterface) {}
 
-  validateAndTransformData(data: { [_: string]: any }) {
+  validateAndTransformData(data: { [_: string]: any }, newRow: boolean = true) {
     const schema = this.migration.getSchema()
     let transformed = {}
     Object.keys(schema).forEach(key => {
@@ -39,7 +39,7 @@ export class StorageInterface {
             transformed[key] = data[key]
             break
         }
-      else transformed[key] = column.column.default
+      else if (newRow) transformed[key] = column.column.default
     })
     return transformed
   }

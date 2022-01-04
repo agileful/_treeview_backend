@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { Cron } from '@nestjs/schedule'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
+import { cp, existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
 import { comparators, converters, Data, Row, Type } from 'src/utils'
 
 @Injectable()
@@ -83,6 +83,13 @@ export class StorageService {
     this.data.splice(index, 0, { rowId: ++this.lastRowId, data, parent })
     this.dataChanged = true
     return this.lastRowId
+  }
+
+  updateRow(row: number, data: Data) {
+    let r = this.data.find(r => r.rowId == row)
+    if (!r) throw new Error()
+    r.data = { ...r.data, ...data }
+    this.dataChanged = true
   }
 
   moveRow(row: number, newIndex: number) {
