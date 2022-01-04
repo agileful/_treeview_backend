@@ -82,6 +82,7 @@ export class StorageService {
     if (parent && !this.data.find(r => r.rowId == parent)) throw new Error()
     this.data.splice(index, 0, { rowId: ++this.lastRowId, data, parent })
     this.dataChanged = true
+    return this.lastRowId
   }
 
   moveRow(row: number, newIndex: number) {
