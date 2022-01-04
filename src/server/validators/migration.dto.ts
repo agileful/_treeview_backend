@@ -69,7 +69,7 @@ export class AddColumnDto {
   @Validate(ProperDefault)
   default: string | number | boolean
 
-  @ApiProperty({ required: false, type: [StyleDto] })
+  @ApiProperty({ required: false, type: StyleDto })
   @IsOptional()
   @ValidateNested()
   @classType(() => StyleDto)
