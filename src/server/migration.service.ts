@@ -1,4 +1,5 @@
 import { ConflictException, Injectable } from '@nestjs/common'
+import { cp } from 'fs'
 import { MigrationService } from 'src/migration/migration.service'
 import { StorageService } from 'src/storage/storage.service'
 import {
@@ -82,6 +83,16 @@ export class MigrationInterface {
           data.default,
         )
       }
+
+      if (data.default) {
+        const oldColumn = this.migration.getColumn(name)
+        column = this.createColumn(
+          oldColumn.column.type,
+          data.default,
+          (oldColumn.column as DropDownColumn).options,
+        )
+      }
+
       this.migration.modifyColumn(name, column, data.displayName, data.style)
     } catch {
       return null

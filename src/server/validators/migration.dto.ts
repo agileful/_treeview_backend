@@ -21,12 +21,12 @@ export class StyleDto {
 
   @ApiProperty({ required: false })
   @IsOptional()
-  @Matches(/^#([0-9a-zA-Z]{3}){1,2}$/)
+  @Matches(/^([a-zA-Z0-9]{3,4}){1,2}$/)
   fontColor: string
 
   @ApiProperty({ required: false })
   @IsOptional()
-  @Matches(/^#([0-9a-zA-Z]{3}){1,2}$/)
+  @Matches(/^([a-zA-Z0-9]{3,4}){1,2}$/)
   backgroundColor: string
 
   @ApiProperty({ required: false, enum: Object.keys(Alignment) })
