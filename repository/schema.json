@@ -5,13 +5,13 @@
       "default": ""
     },
     "visible": true,
-    "frozen": false,
+    "frozen": true,
     "displayName": "username",
     "index": 1,
     "style": {
-      "fontColor": "#222",
+      "fontColor": "#f3070bff",
       "fontSize": 12,
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#ffffffff",
       "alignment": "left",
       "textWrap": true,
       "minColumnWidth": 64,
